@@ -12,6 +12,12 @@ pipeline {
         //git branch: 'main', url: 'https://github.com/Chiran21/Jenkins-Zero-To-Hero.git'
       }
     }
+    stages {
+    stage('OWASP_Dep_Check') {
+      steps {
+            dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'Dep'
+      }
+    }
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
@@ -43,6 +49,11 @@ pipeline {
                 dockerImage.push()
             }
         }
+      }
+    }
+    stage('Trivy Image Scan') {
+      steps {
+        sh 'trivy image chiran69/ultimate-cicd:${BUILD_NUMBER}'
       }
     }
     stage('Update Deployment File') {
