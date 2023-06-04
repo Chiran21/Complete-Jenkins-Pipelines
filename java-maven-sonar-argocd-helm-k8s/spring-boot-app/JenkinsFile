@@ -15,7 +15,7 @@ pipeline {
     stages {
     stage('OWASP_Dep_Check') {
       steps {
-            dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'Dependency-check'
+            dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'dependecy-check'
       }
     }
     stage('Build and Test') {
@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://3.145.134.85:9000"
+        SONAR_URL = "http://3.142.40.65:9000"
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
