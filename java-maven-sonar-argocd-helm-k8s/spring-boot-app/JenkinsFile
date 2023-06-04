@@ -13,8 +13,8 @@ pipeline {
       }
     }
     stages {
-    stage('OWASP_Dep_Check') {
-      steps {
+      stage('OWASP_Dep_Check') {
+        steps {
             dependencyCheck additionalArguments: '--format HTML', odcInstallation: 'dependecy-check'
       }
     }
