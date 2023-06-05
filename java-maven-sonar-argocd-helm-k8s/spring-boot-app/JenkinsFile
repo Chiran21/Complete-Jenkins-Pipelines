@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/Chiran21/Complete-Jenkins-Pipelines.git'
+        git branch: 'main', url: 'https://github.com/Chiran21/Complete-Jenkins-Pipelines'
       }
     }
      stage('OWASP_Dep_Check') {
