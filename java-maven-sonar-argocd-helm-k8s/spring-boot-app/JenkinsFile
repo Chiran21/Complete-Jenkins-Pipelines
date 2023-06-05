@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/Chiran21/Complete-Zero-To-Hero.git'
+        //git branch: 'main', url: 'https://github.com/Chiran21/Complete-Jenkins-Pipelines.git'
       }
     }
      stage('OWASP_Dep_Check') {
@@ -52,7 +52,7 @@ pipeline {
     }
     stage('Update Deployment.yml File') {
         environment {
-            GIT_REPO_NAME = "Complete-Zero-To-Hero"
+            GIT_REPO_NAME = "Complete-Jenkins-Pipelines"
             GIT_USER_NAME = "Chiran21"
         }
         steps {
