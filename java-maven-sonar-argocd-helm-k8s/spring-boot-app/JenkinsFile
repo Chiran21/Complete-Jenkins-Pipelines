@@ -50,11 +50,6 @@ pipeline {
         }
       }
     }
-    stage('Trivy Image Scan') {
-      steps {
-        sh 'trivy image chiran69/complete-cicd:${BUILD_NUMBER}'
-      }
-    }
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
